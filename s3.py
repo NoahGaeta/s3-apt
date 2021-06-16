@@ -4,6 +4,7 @@
 
 import boto3
 import sys
+import logging
 
 MESSAGE_CODES = {
     100: 'Capabilities',
@@ -17,7 +18,10 @@ MESSAGE_CODES = {
 }
 
 
+DEBUG_LOG_PATH = '~/s3-apt-log.txt'
+
 def main():
+    logging.basicConfig(level=logging.INFO)
     verify_credentials()
     return 0
 
@@ -33,9 +37,10 @@ def output_to_apt(code, messages):
 def parse_apt_output():
     output = {}
     lines = sys.stdin.readlines()
+    logging.info('This is an info message', lines)
     for line in lines:
         if line != '\n':
-            
+            print(line)            
 
 
 
