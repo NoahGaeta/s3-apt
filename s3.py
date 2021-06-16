@@ -30,6 +30,15 @@ def output_to_apt(code, messages):
     sys.stdout.write(output)
 
 
+def parse_apt_output():
+    output = {}
+    lines = sys.stdin.readlines()
+    for line in lines:
+        if line != '\n':
+            
+
+
+
 def verify_credentials():
     client = boto3.client('sts')
     try:
